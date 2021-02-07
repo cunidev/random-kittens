@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+notify-send "Hello World"
+curl "https://cataas.com/cat/says/i%20can%20has%20bug?width=1920" --output /tmp/cat.jpg
+
+gsettings set org.cinnamon.desktop.background picture-uri  "file:///tmp/cat.jpg"
+gsettings set org.gnome.desktop.background picture-uri  "file:///tmp/cat.jpg"
+set-wallpaper /tmp/cat.jpg
+
+
